@@ -50,8 +50,9 @@ namespace ROV_TL.Forms
         {
             LoginForm loginForm = new LoginForm();
             this.Hide();
+
             loginForm.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private bool IsEmailUnique(User user)
