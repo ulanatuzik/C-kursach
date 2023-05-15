@@ -63,6 +63,16 @@ namespace ROV_TL.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddIcon {
+            get {
+                object obj = ResourceManager.GetObject("AddIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ExitIcon {
             get {
                 object obj = ResourceManager.GetObject("ExitIcon", resourceCulture);
@@ -76,6 +86,26 @@ namespace ROV_TL.Properties {
         internal static System.Drawing.Bitmap LockIcon {
             get {
                 object obj = ResourceManager.GetObject("LockIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NextPageIcon {
+            get {
+                object obj = ResourceManager.GetObject("NextPageIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PrevPageIcon {
+            get {
+                object obj = ResourceManager.GetObject("PrevPageIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

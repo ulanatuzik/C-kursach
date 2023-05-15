@@ -1,6 +1,7 @@
 ﻿using ROV_TL.Models;
 using NLog;
 using System.Text.RegularExpressions;
+using ROV_TL.Forms;
 
 namespace ROV_TL
 {
@@ -53,7 +54,10 @@ namespace ROV_TL
 
         private void VioLabel_Click(object sender, EventArgs e)
         {
-
+            VioForm vioForm = new VioForm(user);
+            this.Hide();
+            vioForm.ShowDialog();
+            this.Close();
         }
 
         private void ChangeDataButton_Click(object sender, EventArgs e)

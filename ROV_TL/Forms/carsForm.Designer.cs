@@ -261,12 +261,13 @@
             this.VioLabel.AutoSize = true;
             this.VioLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.VioLabel.ForeColor = System.Drawing.Color.Black;
-            this.VioLabel.Location = new System.Drawing.Point(11, 136);
+            this.VioLabel.Location = new System.Drawing.Point(11, 134);
             this.VioLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.VioLabel.Name = "VioLabel";
             this.VioLabel.Size = new System.Drawing.Size(93, 29);
             this.VioLabel.TabIndex = 3;
             this.VioLabel.Text = "Штрафы";
+            this.VioLabel.Click += new System.EventHandler(this.VioLabel_Click_1);
             // 
             // plateLabel_6
             // 
