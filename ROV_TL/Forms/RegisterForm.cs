@@ -36,7 +36,8 @@ namespace ROV_TL.Forms
 
                 log.Info("User register success {login}", user.Login);
 
-                ProfileForm profileForm = new ProfileForm(user);
+                user = db.Users.Where(u => u.Login == user.Login).First();
+                ProfileForm profileForm = new ProfileForm(user.Id);
                 this.Hide();
                 profileForm.ShowDialog();
                 this.Close();
@@ -50,6 +51,7 @@ namespace ROV_TL.Forms
         {
             LoginForm loginForm = new LoginForm();
             this.Hide();
+
             loginForm.ShowDialog();
             this.Close();
         }

@@ -12,7 +12,7 @@ namespace ROV_TL.Models
         public int UserId { get; set; }
         public int CarId { get; set; }
         public string Violation { get; set; }
-        public int Fine { get; set; }
+        public string Fine { get; set; }
         public DateTime Date { get; set; }
     }
 }

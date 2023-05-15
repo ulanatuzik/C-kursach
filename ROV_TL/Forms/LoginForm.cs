@@ -34,7 +34,8 @@ namespace ROV_TL
                 {
                     log.Info("User login success {login}", user.Login);
 
-                    ProfileForm profileForm = new ProfileForm(tryUser);
+                    ProfileForm profileForm = new ProfileForm(tryUser.Id);
+                    this.Hide();
                     profileForm.ShowDialog();
 
                     this.Close();
