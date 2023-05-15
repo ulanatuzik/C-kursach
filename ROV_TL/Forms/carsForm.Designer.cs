@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarsForm));
             this.staticCarLabel = new System.Windows.Forms.Label();
             this.staticPlateLabel = new System.Windows.Forms.Label();
             this.modelLabel_1 = new System.Windows.Forms.Label();
@@ -62,14 +63,17 @@
             this.vioLabel_6 = new System.Windows.Forms.Label();
             this.vioLabel_7 = new System.Windows.Forms.Label();
             this.vioLabel_8 = new System.Windows.Forms.Label();
+            this.StaticNoCarLabel = new System.Windows.Forms.Label();
+            this.AddCarButton = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddCarButton)).BeginInit();
             this.SuspendLayout();
             // 
             // staticCarLabel
             // 
             this.staticCarLabel.AutoSize = true;
             this.staticCarLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.staticCarLabel.Location = new System.Drawing.Point(193, 29);
+            this.staticCarLabel.Location = new System.Drawing.Point(187, 29);
             this.staticCarLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.staticCarLabel.Name = "staticCarLabel";
             this.staticCarLabel.Size = new System.Drawing.Size(185, 35);
@@ -80,7 +84,7 @@
             // 
             this.staticPlateLabel.AutoSize = true;
             this.staticPlateLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.staticPlateLabel.Location = new System.Drawing.Point(453, 29);
+            this.staticPlateLabel.Location = new System.Drawing.Point(447, 29);
             this.staticPlateLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.staticPlateLabel.Name = "staticPlateLabel";
             this.staticPlateLabel.Size = new System.Drawing.Size(188, 35);
@@ -90,7 +94,7 @@
             // modelLabel_1
             // 
             this.modelLabel_1.AutoSize = true;
-            this.modelLabel_1.Location = new System.Drawing.Point(198, 72);
+            this.modelLabel_1.Location = new System.Drawing.Point(192, 72);
             this.modelLabel_1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.modelLabel_1.Name = "modelLabel_1";
             this.modelLabel_1.Size = new System.Drawing.Size(70, 29);
@@ -100,7 +104,7 @@
             // plateLabel_1
             // 
             this.plateLabel_1.AutoSize = true;
-            this.plateLabel_1.Location = new System.Drawing.Point(457, 72);
+            this.plateLabel_1.Location = new System.Drawing.Point(451, 72);
             this.plateLabel_1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.plateLabel_1.Name = "plateLabel_1";
             this.plateLabel_1.Size = new System.Drawing.Size(59, 29);
@@ -110,7 +114,7 @@
             // plateLabel_2
             // 
             this.plateLabel_2.AutoSize = true;
-            this.plateLabel_2.Location = new System.Drawing.Point(457, 109);
+            this.plateLabel_2.Location = new System.Drawing.Point(451, 109);
             this.plateLabel_2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.plateLabel_2.Name = "plateLabel_2";
             this.plateLabel_2.Size = new System.Drawing.Size(59, 29);
@@ -120,7 +124,7 @@
             // modelLabel_2
             // 
             this.modelLabel_2.AutoSize = true;
-            this.modelLabel_2.Location = new System.Drawing.Point(198, 109);
+            this.modelLabel_2.Location = new System.Drawing.Point(192, 109);
             this.modelLabel_2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.modelLabel_2.Name = "modelLabel_2";
             this.modelLabel_2.Size = new System.Drawing.Size(70, 29);
@@ -130,7 +134,7 @@
             // plateLabel_3
             // 
             this.plateLabel_3.AutoSize = true;
-            this.plateLabel_3.Location = new System.Drawing.Point(457, 148);
+            this.plateLabel_3.Location = new System.Drawing.Point(451, 148);
             this.plateLabel_3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.plateLabel_3.Name = "plateLabel_3";
             this.plateLabel_3.Size = new System.Drawing.Size(59, 29);
@@ -140,7 +144,7 @@
             // modelLabel_3
             // 
             this.modelLabel_3.AutoSize = true;
-            this.modelLabel_3.Location = new System.Drawing.Point(198, 148);
+            this.modelLabel_3.Location = new System.Drawing.Point(192, 148);
             this.modelLabel_3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.modelLabel_3.Name = "modelLabel_3";
             this.modelLabel_3.Size = new System.Drawing.Size(70, 29);
@@ -150,7 +154,7 @@
             // plateLabel_4
             // 
             this.plateLabel_4.AutoSize = true;
-            this.plateLabel_4.Location = new System.Drawing.Point(457, 188);
+            this.plateLabel_4.Location = new System.Drawing.Point(451, 188);
             this.plateLabel_4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.plateLabel_4.Name = "plateLabel_4";
             this.plateLabel_4.Size = new System.Drawing.Size(59, 29);
@@ -160,7 +164,7 @@
             // modelLabel_4
             // 
             this.modelLabel_4.AutoSize = true;
-            this.modelLabel_4.Location = new System.Drawing.Point(198, 188);
+            this.modelLabel_4.Location = new System.Drawing.Point(192, 188);
             this.modelLabel_4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.modelLabel_4.Name = "modelLabel_4";
             this.modelLabel_4.Size = new System.Drawing.Size(70, 29);
@@ -170,7 +174,7 @@
             // plateLabel_5
             // 
             this.plateLabel_5.AutoSize = true;
-            this.plateLabel_5.Location = new System.Drawing.Point(457, 229);
+            this.plateLabel_5.Location = new System.Drawing.Point(451, 229);
             this.plateLabel_5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.plateLabel_5.Name = "plateLabel_5";
             this.plateLabel_5.Size = new System.Drawing.Size(59, 29);
@@ -180,7 +184,7 @@
             // modelLabel_5
             // 
             this.modelLabel_5.AutoSize = true;
-            this.modelLabel_5.Location = new System.Drawing.Point(198, 229);
+            this.modelLabel_5.Location = new System.Drawing.Point(192, 229);
             this.modelLabel_5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.modelLabel_5.Name = "modelLabel_5";
             this.modelLabel_5.Size = new System.Drawing.Size(70, 29);
@@ -267,7 +271,7 @@
             // plateLabel_6
             // 
             this.plateLabel_6.AutoSize = true;
-            this.plateLabel_6.Location = new System.Drawing.Point(457, 269);
+            this.plateLabel_6.Location = new System.Drawing.Point(451, 269);
             this.plateLabel_6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.plateLabel_6.Name = "plateLabel_6";
             this.plateLabel_6.Size = new System.Drawing.Size(59, 29);
@@ -277,7 +281,7 @@
             // modelLabel_6
             // 
             this.modelLabel_6.AutoSize = true;
-            this.modelLabel_6.Location = new System.Drawing.Point(198, 269);
+            this.modelLabel_6.Location = new System.Drawing.Point(192, 269);
             this.modelLabel_6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.modelLabel_6.Name = "modelLabel_6";
             this.modelLabel_6.Size = new System.Drawing.Size(70, 29);
@@ -287,7 +291,7 @@
             // plateLabel_7
             // 
             this.plateLabel_7.AutoSize = true;
-            this.plateLabel_7.Location = new System.Drawing.Point(457, 311);
+            this.plateLabel_7.Location = new System.Drawing.Point(451, 311);
             this.plateLabel_7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.plateLabel_7.Name = "plateLabel_7";
             this.plateLabel_7.Size = new System.Drawing.Size(59, 29);
@@ -297,7 +301,7 @@
             // modelLabel_7
             // 
             this.modelLabel_7.AutoSize = true;
-            this.modelLabel_7.Location = new System.Drawing.Point(198, 311);
+            this.modelLabel_7.Location = new System.Drawing.Point(192, 311);
             this.modelLabel_7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.modelLabel_7.Name = "modelLabel_7";
             this.modelLabel_7.Size = new System.Drawing.Size(70, 29);
@@ -307,7 +311,7 @@
             // plateLabel_8
             // 
             this.plateLabel_8.AutoSize = true;
-            this.plateLabel_8.Location = new System.Drawing.Point(457, 352);
+            this.plateLabel_8.Location = new System.Drawing.Point(451, 352);
             this.plateLabel_8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.plateLabel_8.Name = "plateLabel_8";
             this.plateLabel_8.Size = new System.Drawing.Size(59, 29);
@@ -317,7 +321,7 @@
             // modelLabel_8
             // 
             this.modelLabel_8.AutoSize = true;
-            this.modelLabel_8.Location = new System.Drawing.Point(198, 352);
+            this.modelLabel_8.Location = new System.Drawing.Point(192, 352);
             this.modelLabel_8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.modelLabel_8.Name = "modelLabel_8";
             this.modelLabel_8.Size = new System.Drawing.Size(70, 29);
@@ -328,7 +332,7 @@
             // 
             this.staticVioLabel.AutoSize = true;
             this.staticVioLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.staticVioLabel.Location = new System.Drawing.Point(686, 29);
+            this.staticVioLabel.Location = new System.Drawing.Point(680, 29);
             this.staticVioLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.staticVioLabel.Name = "staticVioLabel";
             this.staticVioLabel.Size = new System.Drawing.Size(113, 35);
@@ -338,7 +342,7 @@
             // vioLabel_1
             // 
             this.vioLabel_1.AutoSize = true;
-            this.vioLabel_1.Location = new System.Drawing.Point(689, 72);
+            this.vioLabel_1.Location = new System.Drawing.Point(683, 72);
             this.vioLabel_1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.vioLabel_1.Name = "vioLabel_1";
             this.vioLabel_1.Size = new System.Drawing.Size(40, 29);
@@ -348,7 +352,7 @@
             // vioLabel_2
             // 
             this.vioLabel_2.AutoSize = true;
-            this.vioLabel_2.Location = new System.Drawing.Point(689, 109);
+            this.vioLabel_2.Location = new System.Drawing.Point(683, 109);
             this.vioLabel_2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.vioLabel_2.Name = "vioLabel_2";
             this.vioLabel_2.Size = new System.Drawing.Size(40, 29);
@@ -358,7 +362,7 @@
             // vioLabel_3
             // 
             this.vioLabel_3.AutoSize = true;
-            this.vioLabel_3.Location = new System.Drawing.Point(689, 148);
+            this.vioLabel_3.Location = new System.Drawing.Point(683, 148);
             this.vioLabel_3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.vioLabel_3.Name = "vioLabel_3";
             this.vioLabel_3.Size = new System.Drawing.Size(40, 29);
@@ -368,7 +372,7 @@
             // vioLabel_4
             // 
             this.vioLabel_4.AutoSize = true;
-            this.vioLabel_4.Location = new System.Drawing.Point(689, 188);
+            this.vioLabel_4.Location = new System.Drawing.Point(683, 188);
             this.vioLabel_4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.vioLabel_4.Name = "vioLabel_4";
             this.vioLabel_4.Size = new System.Drawing.Size(40, 29);
@@ -378,7 +382,7 @@
             // vioLabel_5
             // 
             this.vioLabel_5.AutoSize = true;
-            this.vioLabel_5.Location = new System.Drawing.Point(689, 229);
+            this.vioLabel_5.Location = new System.Drawing.Point(683, 229);
             this.vioLabel_5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.vioLabel_5.Name = "vioLabel_5";
             this.vioLabel_5.Size = new System.Drawing.Size(40, 29);
@@ -388,7 +392,7 @@
             // vioLabel_6
             // 
             this.vioLabel_6.AutoSize = true;
-            this.vioLabel_6.Location = new System.Drawing.Point(689, 269);
+            this.vioLabel_6.Location = new System.Drawing.Point(683, 269);
             this.vioLabel_6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.vioLabel_6.Name = "vioLabel_6";
             this.vioLabel_6.Size = new System.Drawing.Size(40, 29);
@@ -398,7 +402,7 @@
             // vioLabel_7
             // 
             this.vioLabel_7.AutoSize = true;
-            this.vioLabel_7.Location = new System.Drawing.Point(689, 311);
+            this.vioLabel_7.Location = new System.Drawing.Point(683, 311);
             this.vioLabel_7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.vioLabel_7.Name = "vioLabel_7";
             this.vioLabel_7.Size = new System.Drawing.Size(40, 29);
@@ -408,12 +412,35 @@
             // vioLabel_8
             // 
             this.vioLabel_8.AutoSize = true;
-            this.vioLabel_8.Location = new System.Drawing.Point(689, 352);
+            this.vioLabel_8.Location = new System.Drawing.Point(683, 352);
             this.vioLabel_8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.vioLabel_8.Name = "vioLabel_8";
             this.vioLabel_8.Size = new System.Drawing.Size(40, 29);
             this.vioLabel_8.TabIndex = 38;
             this.vioLabel_8.Text = "vio";
+            // 
+            // StaticNoCarLabel
+            // 
+            this.StaticNoCarLabel.AutoSize = true;
+            this.StaticNoCarLabel.Location = new System.Drawing.Point(290, 35);
+            this.StaticNoCarLabel.MaximumSize = new System.Drawing.Size(433, 0);
+            this.StaticNoCarLabel.Name = "StaticNoCarLabel";
+            this.StaticNoCarLabel.Size = new System.Drawing.Size(433, 58);
+            this.StaticNoCarLabel.TabIndex = 39;
+            this.StaticNoCarLabel.Text = "У вашего профиля не найдено автомобилей\r\nДобавьте новый, чтобы найти нарушения\r\n";
+            this.StaticNoCarLabel.Visible = false;
+            // 
+            // AddCarButton
+            // 
+            this.AddCarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddCarButton.Image = ((System.Drawing.Image)(resources.GetObject("AddCarButton.Image")));
+            this.AddCarButton.Location = new System.Drawing.Point(804, 31);
+            this.AddCarButton.Name = "AddCarButton";
+            this.AddCarButton.Size = new System.Drawing.Size(36, 35);
+            this.AddCarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AddCarButton.TabIndex = 40;
+            this.AddCarButton.TabStop = false;
+            this.AddCarButton.Click += new System.EventHandler(this.AddCarButton_Click);
             // 
             // CarsForm
             // 
@@ -421,6 +448,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(867, 455);
+            this.Controls.Add(this.AddCarButton);
             this.Controls.Add(this.vioLabel_8);
             this.Controls.Add(this.vioLabel_7);
             this.Controls.Add(this.vioLabel_6);
@@ -449,6 +477,7 @@
             this.Controls.Add(this.modelLabel_1);
             this.Controls.Add(this.staticPlateLabel);
             this.Controls.Add(this.staticCarLabel);
+            this.Controls.Add(this.StaticNoCarLabel);
             this.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -459,6 +488,7 @@
             this.Load += new System.EventHandler(this.CarsForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddCarButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,5 +529,7 @@
         private Label vioLabel_6;
         private Label vioLabel_7;
         private Label vioLabel_8;
+        private Label StaticNoCarLabel;
+        private PictureBox AddCarButton;
     }
 }

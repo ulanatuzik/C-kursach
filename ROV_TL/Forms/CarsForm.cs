@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NLog;
 using ROV_TL.Forms.Additional;
 using ROV_TL.Models;
 
@@ -14,7 +15,11 @@ namespace ROV_TL
 {
     public partial class CarsForm : Form
     {
+        // Entity framework things
         ApplicationContext db = new ApplicationContext();
+
+        // NLOG things
+        Logger log = LogManager.GetCurrentClassLogger();
 
         // Arrays for labels
         Label[] models;
@@ -46,6 +51,7 @@ namespace ROV_TL
             }
             catch (Exception ex)
             {
+                log.Warn("No violations found for car: {carId}", carId);
                 return 0;
             }
         }
@@ -138,28 +144,39 @@ namespace ROV_TL
 
         private void CarsForm_Load(object sender, EventArgs e)
         {
-            Car[] cars = db.Cars.Where(c => c.UserId == user.Id).ToArray();
-            
-            string[] carModels = db.Cars.Select(c => c.Model).ToArray();
-            int[] carIds = cars.Select(c => c.CarId).ToArray();
-            
-
-            for (int i = 0; i < cars.Length; i++)
+            try
             {
-                carDict.Add(cars[i].Model, cars[i].CarId);
-                models[i].Text = cars[i].Model;
-                numplates[i].Text = cars[i].NumberPlate;
+                Car[] cars = db.Cars.Where(c => c.UserId == user.Id).ToArray();
 
-                int totalVio = CountTotalVio(cars[i].CarId);
-                if (totalVio > 0)
-                    vios[i].Text = totalVio.ToString();
-                else
-                    vios[i].Text = "0";
+                string[] carModels = db.Cars.Select(c => c.Model).ToArray();
+                int[] carIds = cars.Select(c => c.CarId).ToArray();
 
+
+                for (int i = 0; i < cars.Length; i++)
+                {
+                    carDict.Add(cars[i].Model, cars[i].CarId);
+                    models[i].Text = cars[i].Model;
+                    numplates[i].Text = cars[i].NumberPlate;
+
+                    int totalVio = CountTotalVio(cars[i].CarId);
+                    if (totalVio > 0)
+                        vios[i].Text = totalVio.ToString();
+                    else
+                        vios[i].Text = "0";
+
+                }
+
+                ClearEmptyLabel();
+                SetLabelClicks();
+
+                
             }
-
-            ClearEmptyLabel();
-            SetLabelClicks();
+            catch (Exception ex)
+            {
+                log.Warn("No cars found for user: {userId}", user.Id);
+                StaticNoCarLabel.Visible = true;
+                ClearEmptyLabel();
+            }
         }
 
         private void ModelLabel_Click(object sender, EventArgs e)
@@ -183,6 +200,23 @@ namespace ROV_TL
         {
             Label vio = (Label)sender;
             MessageBox.Show(vio.Text);
+        }
+
+        private void AddCarButton_Click(object sender, EventArgs e)
+        {
+            Car[] carAmount = db.Cars.Where(c => c.UserId == user.Id).ToArray();
+
+            if (carAmount.Length >= 8)
+            {
+                MessageBox.Show("Кол-во автомобилей для одного профиля 8 штук. Удалите какой-либо чтобы продолжить", "ROV Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+            AddCarForm addCarForm = new AddCarForm(user, this);
+
+            addCarForm.ShowDialog();
+            this.Close();
         }
     }
 }

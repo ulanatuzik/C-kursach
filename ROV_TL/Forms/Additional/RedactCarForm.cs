@@ -1,11 +1,17 @@
-﻿using ROV_TL.Models;
+﻿using NLog;
+using ROV_TL.Models;
 using System.Text.RegularExpressions;
 
 namespace ROV_TL.Forms.Additional
 {
     public partial class RedactCarForm : Form
     {
+        // Entity framework things
         ApplicationContext db = new ApplicationContext();
+
+        // NLOG things
+        Logger log = LogManager.GetCurrentClassLogger();
+
         CarsForm carsForm;
 
         Car car;
@@ -57,6 +63,8 @@ namespace ROV_TL.Forms.Additional
             db.Cars.Update(car);
             db.SaveChanges();
 
+
+            log.Info("Data changed success for car: {carId}", car.CarId);
 
             MessageBox.Show("Данные успешно изменены", "ROV",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
