@@ -66,7 +66,7 @@
             // 
             this.VioLabel.AutoSize = true;
             this.VioLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.VioLabel.Location = new System.Drawing.Point(11, 141);
+            this.VioLabel.Location = new System.Drawing.Point(11, 139);
             this.VioLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.VioLabel.Name = "VioLabel";
             this.VioLabel.Size = new System.Drawing.Size(93, 29);
@@ -78,7 +78,7 @@
             // 
             this.ProfileLabel.AutoSize = true;
             this.ProfileLabel.ForeColor = System.Drawing.Color.Black;
-            this.ProfileLabel.Location = new System.Drawing.Point(11, 98);
+            this.ProfileLabel.Location = new System.Drawing.Point(12, 97);
             this.ProfileLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.ProfileLabel.Name = "ProfileLabel";
             this.ProfileLabel.Size = new System.Drawing.Size(98, 29);
@@ -122,7 +122,7 @@
             // 
             this.CarInfoLabel.AutoSize = true;
             this.CarInfoLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CarInfoLabel.Location = new System.Drawing.Point(11, 178);
+            this.CarInfoLabel.Location = new System.Drawing.Point(11, 175);
             this.CarInfoLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.CarInfoLabel.Name = "CarInfoLabel";
             this.CarInfoLabel.Size = new System.Drawing.Size(126, 29);
@@ -139,15 +139,15 @@
             this.panel1.Controls.Add(this.ROVLabel);
             this.panel1.Controls.Add(this.ProfileLabel);
             this.panel1.Controls.Add(this.VioLabel);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(173, 454);
+            this.panel1.Size = new System.Drawing.Size(173, 459);
             this.panel1.TabIndex = 9;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.panel3.Location = new System.Drawing.Point(-2, 129);
+            this.panel3.Location = new System.Drawing.Point(0, 129);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(109, 5);
             this.panel3.TabIndex = 9;
@@ -259,6 +259,7 @@
             // ChangeDataButton
             // 
             this.ChangeDataButton.BackColor = System.Drawing.Color.Tan;
+            this.ChangeDataButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChangeDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeDataButton.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ChangeDataButton.Location = new System.Drawing.Point(212, 318);
@@ -272,6 +273,8 @@
             // ConfirmDataButton
             // 
             this.ConfirmDataButton.BackColor = System.Drawing.Color.Tan;
+            this.ConfirmDataButton.Cursor = System.Windows.Forms.Cursors.No;
+            this.ConfirmDataButton.Enabled = false;
             this.ConfirmDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConfirmDataButton.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ConfirmDataButton.Location = new System.Drawing.Point(547, 318);

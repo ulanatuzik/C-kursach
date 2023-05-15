@@ -36,7 +36,8 @@ namespace ROV_TL.Forms
 
                 log.Info("User register success {login}", user.Login);
 
-                ProfileForm profileForm = new ProfileForm(user);
+                user = db.Users.Where(u => u.Login == user.Login).First();
+                ProfileForm profileForm = new ProfileForm(user.Id);
                 this.Hide();
                 profileForm.ShowDialog();
                 this.Close();
@@ -52,7 +53,7 @@ namespace ROV_TL.Forms
             this.Hide();
 
             loginForm.ShowDialog();
-            this.Show();
+            this.Close();
         }
 
         private bool IsEmailUnique(User user)

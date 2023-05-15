@@ -18,20 +18,21 @@ namespace ROV_TL
         // Array of lock/unlock pic boxes
         PictureBox[] accessBoxes;
 
-        public ProfileForm(User currentUser)
+        public ProfileForm(int id)
         {
             InitializeComponent();
 
             // For hiding password in text box;
             PasswordTextBox.UseSystemPasswordChar = true;
 
-            user = currentUser;
 
-            BalanceLabel.Text = currentUser.Balance.ToString();
-            LoginTextBox.Text = currentUser.Login;
-            PasswordTextBox.Text = currentUser.Password;
-            EmailTextBox.Text = currentUser.Email;
-            FioTextBox.Text = currentUser.Fio;
+            user = DBCode.GetUserById(id);
+
+            BalanceLabel.Text = user.Balance.ToString();
+            LoginTextBox.Text = user.Login;
+            PasswordTextBox.Text = user.Password;
+            EmailTextBox.Text = user.Email;
+            FioTextBox.Text = user.Fio;
 
             ChangeDataButton.Focus();
 
@@ -45,7 +46,9 @@ namespace ROV_TL
         private void CarInfoLabel_Click(object sender, EventArgs e)
         {
             CarsForm carsForm = new CarsForm(user);
+            this.Hide();
             carsForm.ShowDialog();
+            this.Close();
         }
 
         private void VioLabel_Click(object sender, EventArgs e)
@@ -64,6 +67,9 @@ namespace ROV_TL
             {
                 accessBoxes[i].Image = Properties.Resources.UnlockIcon;
             }
+
+            ConfirmDataButton.Enabled = true;
+            ConfirmDataButton.Cursor = Cursors.Hand;
         }
 
         private void ConfirmDataButton_Click(object sender, EventArgs e)
@@ -171,6 +177,9 @@ namespace ROV_TL
             {
                 accessBoxes[i].Image = Properties.Resources.LockIcon;
             }
+
+            ConfirmDataButton.Cursor = Cursors.No;
+            ConfirmDataButton.Enabled = false;
 
             log.Info("Data changed success for user: {login}", user.Login);
 
