@@ -11,6 +11,7 @@ namespace ROV_TL
     public class ApplicationContext : DbContext
     {
         public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Admin> Admins { get; set; } = null!;
         public DbSet<Car> Cars { get; set; } = null!;
         public DbSet<Vio> Violations { get; set; } = null!;
         public DbSet<PayedVio> PayedVio { get; set; } = null!;

@@ -1,6 +1,7 @@
 using ROV_TL.Models;
 using ROV_TL.Forms;
 using NLog;
+using ROV_TL.AdminForms;
 
 namespace ROV_TL
 {
@@ -50,10 +51,34 @@ namespace ROV_TL
             }
             catch (Exception ex)
             {
-                log.Warn("Invalid login {login}", user.Login);
+                try
+                {
+                    Admin admin = db.Admins.Where(a => a.Login == LoginTextBox.Text).First();
+                    
+                    if (admin.Password == PasswordTextBox.Text)
+                    {
+                        AProfileForm adminForm = new AProfileForm();
+                        this.Hide();
+                        adminForm.ShowDialog();
+                        this.Show();
 
-                MessageBox.Show("Такого логина не существует", "ROV Error",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        log.Info("Admin login success {login}", admin.Login);
+                    }
+                    else
+                    {
+                        log.Warn("Invalid password for admin {login}", admin.Login);
+
+                        MessageBox.Show("Неверный пароль", "ROV Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception excep)
+                {
+                    log.Warn("Invalid login {login}", user.Login);
+
+                    MessageBox.Show("Такого логина не существует", "ROV Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
