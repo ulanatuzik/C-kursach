@@ -67,6 +67,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.NoViosLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrevPageButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NextPageButton)).BeginInit();
@@ -97,6 +98,7 @@
             // CarInfoLabel
             // 
             this.CarInfoLabel.AutoSize = true;
+            this.CarInfoLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CarInfoLabel.ForeColor = System.Drawing.Color.Black;
             this.CarInfoLabel.Location = new System.Drawing.Point(10, 170);
             this.CarInfoLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -104,6 +106,7 @@
             this.CarInfoLabel.Size = new System.Drawing.Size(126, 29);
             this.CarInfoLabel.TabIndex = 8;
             this.CarInfoLabel.Text = "Автомобили";
+            this.CarInfoLabel.Click += new System.EventHandler(this.CarInfoLabel_Click);
             // 
             // panel2
             // 
@@ -135,11 +138,11 @@
             this.ProfileLabel.Size = new System.Drawing.Size(98, 29);
             this.ProfileLabel.TabIndex = 2;
             this.ProfileLabel.Text = "Профиль";
+            this.ProfileLabel.Click += new System.EventHandler(this.ProfileLabel_Click);
             // 
             // VioLabel
             // 
             this.VioLabel.AutoSize = true;
-            this.VioLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.VioLabel.ForeColor = System.Drawing.Color.Black;
             this.VioLabel.Location = new System.Drawing.Point(11, 134);
             this.VioLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -521,12 +524,26 @@
             this.panel8.Size = new System.Drawing.Size(643, 10);
             this.panel8.TabIndex = 46;
             // 
+            // NoViosLabel
+            // 
+            this.NoViosLabel.AutoSize = true;
+            this.NoViosLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NoViosLabel.Location = new System.Drawing.Point(312, 173);
+            this.NoViosLabel.MaximumSize = new System.Drawing.Size(450, 0);
+            this.NoViosLabel.Name = "NoViosLabel";
+            this.NoViosLabel.Size = new System.Drawing.Size(440, 116);
+            this.NoViosLabel.TabIndex = 47;
+            this.NoViosLabel.Text = "Штрафов не найдено! Нарушайте больше...";
+            this.NoViosLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.NoViosLabel.Visible = false;
+            // 
             // VioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(867, 455);
+            this.Controls.Add(this.NoViosLabel);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -618,5 +635,6 @@
         private Panel panel6;
         private Panel panel7;
         private Panel panel8;
+        private Label NoViosLabel;
     }
 }

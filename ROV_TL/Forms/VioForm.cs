@@ -27,6 +27,9 @@ namespace ROV_TL.Forms
         Label[] sumLabels;
         Label[] dateLabels;
 
+        // Dictionary with label and vio int
+        Dictionary<Label, int> vioDict = new Dictionary<Label, int>();
+
         public VioForm(User currentUser, int page = 1)
         {
             InitializeComponent();
@@ -143,6 +146,7 @@ namespace ROV_TL.Forms
 
                 for (int i = 0; i < viosToShow.Length; i++)
                 {
+                    vioDict.Add(vioLabels[i], viosToShow[i].VioId);
                     vioLabels[i].Text = viosToShow[i].Violation;
                     sumLabels[i].Text = viosToShow[i].Fine;
                     dateLabels[i].Text = viosToShow[i].Date.ToString();
@@ -150,11 +154,32 @@ namespace ROV_TL.Forms
                     // Select car where carId = carId from vio and take model name from it
                     modelLabels[i].Text = db.Cars.Where(c => c.CarId == viosToShow[i].CarId).First().Model;
                 }
+
+                if (count <= 0)
+                {
+                    log.Warn("No vios found for user {login}", user.Id);
+                    NoViosLabel.Visible = true;
+                    StaticCarLabel.Visible = false;
+                    StaticDateLabel.Visible = false;
+                    StaticSumLabel.Visible = false;
+                    StaticVioLabel.Visible = false;
+                    CurrentPageLabel.Visible = false;
+                    //84567
+                    panel4.Visible = false;
+                    panel5.Visible = false;
+                    panel6.Visible = false;
+                    panel7.Visible = false;
+                    panel8.Visible = false;
+
+                    ClearEmptyLabels();
+                }
             }
             catch (Exception ex)
             {
-                // if no vios do smh
-                MessageBox.Show(ex.Message);
+                log.Error(ex, "Error while loading vios user {login}", user.Login);
+                NoViosLabel.Visible = true;
+
+                ClearEmptyLabels();
             }
 
             if (IsNextPageExist() == false)
@@ -176,7 +201,12 @@ namespace ROV_TL.Forms
 
         private void ViolationLabel_Click(object sender, EventArgs e)
         {
+            Label currentLabel = (Label)sender;
+            Vio payVio= db.Violations.Where(v => v.VioId == vioDict[currentLabel]).First();
+            PayForm payForm = new PayForm(user, payVio.VioId, payVio.CarId, this);
 
+            payForm.ShowDialog();
+            this.Close();
         }
 
         private void PrevPageButton_Click(object sender, EventArgs e)
@@ -192,6 +222,22 @@ namespace ROV_TL.Forms
             VioForm vioForm = new VioForm(user, page + 1);
             this.Hide();
             vioForm.ShowDialog();
+            this.Close();
+        }
+
+        private void ProfileLabel_Click(object sender, EventArgs e)
+        {
+            ProfileForm profileForm = new ProfileForm(user.Id);
+            this.Hide();
+            profileForm.ShowDialog();
+            this.Close();
+        }
+
+        private void CarInfoLabel_Click(object sender, EventArgs e)
+        {
+            CarsForm carsForm = new CarsForm(user);
+            this.Hide();
+            carsForm.ShowDialog();
             this.Close();
         }
     }
