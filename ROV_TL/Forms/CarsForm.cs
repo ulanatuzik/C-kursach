@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using NLog;
+using ROV_TL.Forms;
 using ROV_TL.Forms.Additional;
 using ROV_TL.Models;
 
@@ -96,8 +89,8 @@ namespace ROV_TL
                 if (models[i].Enabled == true)
                     models[i].Click += ModelLabel_Click;
 
-                if (numplates[i].Enabled == true)
-                    numplates[i].Click += PlateLabel_Click;
+                //if (numplates[i].Enabled == true)
+                //    numplates[i].Click += PlateLabel_Click;
 
                 if (vios[i].Enabled == true)
                     vios[i].Click += VioLabel_Click;
@@ -134,6 +127,14 @@ namespace ROV_TL
             ProfileForm profileForm = new ProfileForm(user.Id);
             this.Hide();
             profileForm.ShowDialog();
+            this.Close();
+        }
+
+        private void VioLabel_Click_1(object sender, EventArgs e)
+        {
+            VioForm vioForm = new VioForm(user);
+            this.Hide();
+            vioForm.ShowDialog();
             this.Close();
         }
 
