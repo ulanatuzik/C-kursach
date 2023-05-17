@@ -202,6 +202,12 @@ namespace ROV_TL.AdminForms
             Label currentLabel = (Label)sender;
             Admin redactAdmin = db.Admins.Where(a => a.AdminId == adminDict[currentLabel]).First();
 
+            if (redactAdmin.AdminLevel > admin.AdminLevel)
+            {
+                MessageBox.Show("Невозможно редактировать администратора,\nчей доступ выше вашего");
+                return;
+            }
+
             RedactAdminForm redactForm = new RedactAdminForm(admin, redactAdmin, this);
             redactForm.ShowDialog();
             this.Close();
@@ -225,7 +231,10 @@ namespace ROV_TL.AdminForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
+            AddAdminForm addForm = new AddAdminForm(admin, this);
+            this.Hide();
+            addForm.ShowDialog();
+            this.Close();
         }
     }
 }
