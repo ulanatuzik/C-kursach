@@ -164,7 +164,6 @@ namespace ROV_TL.Forms
                     StaticSumLabel.Visible = false;
                     StaticVioLabel.Visible = false;
                     CurrentPageLabel.Visible = false;
-                    //84567
                     panel4.Visible = false;
                     panel5.Visible = false;
                     panel6.Visible = false;

@@ -57,7 +57,7 @@ namespace ROV_TL
                     
                     if (admin.Password == PasswordTextBox.Text)
                     {
-                        AProfileForm adminForm = new AProfileForm();
+                        AdminsForm adminForm = new AdminsForm(admin);
                         this.Hide();
                         adminForm.ShowDialog();
                         this.Show();
