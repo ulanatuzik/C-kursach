@@ -2,6 +2,7 @@ using ROV_TL.Models;
 using ROV_TL.Forms;
 using NLog;
 using ROV_TL.AdminForms;
+using Microsoft.EntityFrameworkCore;
 
 namespace ROV_TL
 {
@@ -15,6 +16,7 @@ namespace ROV_TL
         public LoginForm()
         {
             InitializeComponent();
+            db.Set<User>().AsNoTracking();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)

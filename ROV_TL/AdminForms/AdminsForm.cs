@@ -236,5 +236,13 @@ namespace ROV_TL.AdminForms
             addForm.ShowDialog();
             this.Close();
         }
+
+        private void UsersLabel_Click(object sender, EventArgs e)
+        {
+            UsersForm usersForm = new UsersForm(admin);
+            this.Hide();
+            usersForm.ShowDialog();
+            this.Close();
+        }
     }
 }

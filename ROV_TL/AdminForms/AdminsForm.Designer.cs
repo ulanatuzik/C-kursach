@@ -188,6 +188,7 @@
             this.UsersLabel.Size = new System.Drawing.Size(142, 29);
             this.UsersLabel.TabIndex = 3;
             this.UsersLabel.Text = "Пользователи";
+            this.UsersLabel.Click += new System.EventHandler(this.UsersLabel_Click);
             // 
             // NextPageButton
             // 
@@ -719,7 +720,7 @@
             this.AddButton.TabStop = false;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // AProfileForm
+            // AdminsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -773,7 +774,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Name = "AProfileForm";
+            this.Name = "AdminsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AProfileForm";
             this.Load += new System.EventHandler(this.AProfileForm_Load);

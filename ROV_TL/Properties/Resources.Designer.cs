@@ -113,6 +113,16 @@ namespace ROV_TL.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SearchIcon {
+            get {
+                object obj = ResourceManager.GetObject("SearchIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UnlockIcon {
             get {
                 object obj = ResourceManager.GetObject("UnlockIcon", resourceCulture);

@@ -18,6 +18,8 @@ namespace ROV_TL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.EnableSensitiveDataLogging();
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             optionsBuilder.UseSqlServer(@"Server=localhost;Database=ROV;Trusted_Connection=True;TrustServerCertificate=True;");
         }
     }
