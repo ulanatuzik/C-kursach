@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NLog;
+﻿using NLog;
 using ROV_TL.Models;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ROV_TL.AdminForms.AdminAddtional
 {
-    public partial class RedactUserForm : Form
+    public partial class SearchUserForm : Form
     {
         // Entity framework things
         ApplicationContext db = new ApplicationContext();
@@ -22,23 +21,20 @@ namespace ROV_TL.AdminForms.AdminAddtional
         // NLOG things
         Logger log = LogManager.GetCurrentClassLogger();
 
-        // Current admin
+        // Current Admin
         Admin admin;
-        
-        // User to redact
+
+        // User to be found
         User user;
 
-        // Link to users form
+        // Link to user form
         UsersForm usersForm;
 
-        public RedactUserForm(Admin currentAdmin, User user, UsersForm usersForm)
+        public SearchUserForm(Admin currentAdmin, UsersForm usersForm)
         {
             InitializeComponent();
-            this.user = user;
-            this.usersForm = usersForm;
             admin = currentAdmin;
-
-            db.Set<User>().AsNoTracking();
+            this.usersForm = usersForm;
         }
 
         private bool IsEmailUnique(string email)
@@ -73,15 +69,50 @@ namespace ROV_TL.AdminForms.AdminAddtional
             return false;
         }
 
-        private void RedactUserForm_Load(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
-            User redactUser = db.Users.Where(u => u.Id == user.Id).First();
-            
-            LoginTextBox.Text = redactUser.Login;
-            PasswordTextBox.Text = redactUser.Password;
-            EmailTextBox.Text = redactUser.Email;
-            FioTextBox.Text = redactUser.Fio;
-            BalanceTextBox.Text = redactUser.Balance.ToString();
+            User searchUser;
+
+            if (SearchTextBox.Text == "" || SearchTextBox.Text.Length < 4)
+            {
+                MessageBox.Show("Не все данные для поиска заполнены. В поиске должно быть минимум 4 символа");
+            }
+
+            try
+            {
+                searchUser = db.Users.Where(u => u.Login == SearchTextBox.Text).First();
+                user = searchUser;
+
+                LoginTextBox.Text = searchUser.Login;
+                PasswordTextBox.Text = searchUser.Password;
+                EmailTextBox.Text = searchUser.Email;
+                FioTextBox.Text = searchUser.Fio;
+                BalanceTextBox.Text = searchUser.Balance.ToString();
+
+                MessageBox.Show("Пользователь найден, данные заполнены");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Пользователей с таким логином не найдено!");
+            }
+        }
+
+        private void StaticCloseLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersForm form = new UsersForm(admin);
+            usersForm.Hide();
+            form.ShowDialog();
+            this.Close();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersForm form = new UsersForm(admin);
+            usersForm.Hide();
+            form.ShowDialog();
+            this.Close();
         }
 
         private void ConfirmDataButton_Click(object sender, EventArgs e)
@@ -205,39 +236,6 @@ namespace ROV_TL.AdminForms.AdminAddtional
 
             MessageBox.Show("Данные успешно изменены", "ROV",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            if (admin.AdminLevel < 2)
-            {
-                MessageBox.Show("Ваш уровень не позволяет удалять пользователей", "ROV Error",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            db.Users.Remove(user);
-            db.SaveChanges();
-
-            MessageBox.Show("Пользователь успешно удален", "ROV",
-            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            log.Info("User delete success user: {login}", user.Login);
-
-            this.Hide();
-            UsersForm form = new UsersForm(admin);
-            usersForm.Hide();
-            form.ShowDialog();
-            this.Close();
-        }
-
-        private void StaticCloseLabel_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            UsersForm form = new UsersForm(admin);
-            usersForm.Hide();
-            form.ShowDialog();
-            this.Close();
         }
     }
 }

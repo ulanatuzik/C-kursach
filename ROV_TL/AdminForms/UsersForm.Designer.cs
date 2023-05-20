@@ -193,6 +193,7 @@
             // 
             // AddButton
             // 
+            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddButton.Image = global::ROV_TL.Properties.Resources.AddIcon;
             this.AddButton.Location = new System.Drawing.Point(200, 20);
             this.AddButton.Name = "AddButton";
@@ -730,6 +731,7 @@
             // 
             // SearchButton
             // 
+            this.SearchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SearchButton.Image = global::ROV_TL.Properties.Resources.SearchIcon;
             this.SearchButton.Location = new System.Drawing.Point(246, 20);
             this.SearchButton.Name = "SearchButton";

@@ -211,12 +211,18 @@ namespace ROV_TL.AdminForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
+            AddUserForm addUserForm = new AddUserForm(admin, this);
+            this.Hide();
+            addUserForm.Show();
+            this.Close();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            db.Dispose();
+            SearchUserForm searchForm = new SearchUserForm(admin, this);
+            //this.Hide();
+            searchForm.ShowDialog();
+            this.Close();
         }
     }
 }

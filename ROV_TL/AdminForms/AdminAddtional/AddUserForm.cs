@@ -1,20 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NLog;
+﻿using NLog;
 using ROV_TL.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ROV_TL.AdminForms.AdminAddtional
 {
-    public partial class RedactUserForm : Form
+    public partial class AddUserForm : Form
     {
         // Entity framework things
         ApplicationContext db = new ApplicationContext();
@@ -24,21 +15,15 @@ namespace ROV_TL.AdminForms.AdminAddtional
 
         // Current admin
         Admin admin;
-        
-        // User to redact
-        User user;
 
         // Link to users form
         UsersForm usersForm;
 
-        public RedactUserForm(Admin currentAdmin, User user, UsersForm usersForm)
+        public AddUserForm(Admin currentAdmin, UsersForm usersForm)
         {
             InitializeComponent();
-            this.user = user;
-            this.usersForm = usersForm;
             admin = currentAdmin;
-
-            db.Set<User>().AsNoTracking();
+            this.usersForm = usersForm;
         }
 
         private bool IsEmailUnique(string email)
@@ -73,17 +58,6 @@ namespace ROV_TL.AdminForms.AdminAddtional
             return false;
         }
 
-        private void RedactUserForm_Load(object sender, EventArgs e)
-        {
-            User redactUser = db.Users.Where(u => u.Id == user.Id).First();
-            
-            LoginTextBox.Text = redactUser.Login;
-            PasswordTextBox.Text = redactUser.Password;
-            EmailTextBox.Text = redactUser.Email;
-            FioTextBox.Text = redactUser.Fio;
-            BalanceTextBox.Text = redactUser.Balance.ToString();
-        }
-
         private void ConfirmDataButton_Click(object sender, EventArgs e)
         {
             // If any of data is empty it returns;
@@ -92,7 +66,7 @@ namespace ROV_TL.AdminForms.AdminAddtional
                 MessageBox.Show("Не все данные заполнены", "ROV Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                log.Warn("Data is not fulled: user {login}", user.Login);
+                log.Warn("Data is not fulled: user {login}", LoginTextBox.Text);
                 return;
             }
 
@@ -111,7 +85,7 @@ namespace ROV_TL.AdminForms.AdminAddtional
                 MessageBox.Show("Неверный пароль. Пароль должен быть от 6 до 20 символов", "ROV Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                log.Warn("Password is wrong: user {login}", user.Login);
+                log.Warn("Password is wrong: user {login}", LoginTextBox.Text);
                 return;
             }
 
@@ -122,7 +96,7 @@ namespace ROV_TL.AdminForms.AdminAddtional
                     MessageBox.Show("Баланс не может быть отрицательным", "ROV Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    log.Warn("Password is wrong: user {login}", user.Login);
+                    log.Warn("Password is wrong: user {login}", LoginTextBox.Text);
                     return;
                 }
             }
@@ -131,7 +105,7 @@ namespace ROV_TL.AdminForms.AdminAddtional
                 MessageBox.Show("Баланс должен быть int", "ROV Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                log.Warn("Balance is wrong: user {login}", user.Login);
+                log.Warn("Balance is wrong: user {login}", LoginTextBox.Text);
                 return;
             }
 
@@ -157,73 +131,37 @@ namespace ROV_TL.AdminForms.AdminAddtional
                 return;
             }
 
-            // Updating user info
-
-            // Check if email unique
-            if (EmailTextBox.Text != user.Email)
+            if (IsEmailUnique(EmailTextBox.Text) == false)
             {
-                if (IsEmailUnique(EmailTextBox.Text) == true)
-                {
-                    // Change user email
-                    user.Email = EmailTextBox.Text;
-                }
-                else
-                {
-                    MessageBox.Show("Данная электронная почта уже занята", "ROV Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Данная электронная почта уже занята", "ROV Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    return;
-                }
+                return;
             }
 
-            // Check if login unique
-            if (LoginTextBox.Text != user.Login)
+            if (IsLoginUnique(LoginTextBox.Text) == false)
             {
-                if (IsLoginUnique(LoginTextBox.Text) == true)
-                {
-                    // Change user login
-                    user.Login = LoginTextBox.Text;
-                }
-                else
-                {
-                    MessageBox.Show("Данный логин уже занят", "ROV Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Данный логин уже занят", "ROV Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    return;
-                }
+                return;
             }
 
-            user.Balance = Convert.ToInt32(BalanceTextBox.Text);
-            user.Password = PasswordTextBox.Text;
-            user.Fio = FioTextBox.Text;
+            User newUser = new User
+            {
+                Login = LoginTextBox.Text,
+                Password = PasswordTextBox.Text,
+                Email = EmailTextBox.Text,
+                Fio = FioTextBox.Text,
+                Balance = Convert.ToInt32(BalanceTextBox.Text)
+            };
 
-            //db.Users.Remove(user);
-            db.Users.Update(user);
+            db.Users.Add(newUser);
             db.SaveChanges();
-
-            log.Info("Data changed success for user: {login}", user.Login);
-
-            MessageBox.Show("Данные успешно изменены", "ROV",
-            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            if (admin.AdminLevel < 2)
-            {
-                MessageBox.Show("Ваш уровень не позволяет удалять пользователей", "ROV Error",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            db.Users.Remove(user);
-            db.SaveChanges();
-
-            MessageBox.Show("Пользователь успешно удален", "ROV",
-            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            log.Info("User delete success user: {login}", user.Login);
-
             this.Hide();
             UsersForm form = new UsersForm(admin);
             usersForm.Hide();
