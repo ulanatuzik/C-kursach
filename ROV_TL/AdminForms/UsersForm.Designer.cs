@@ -115,6 +115,7 @@
             this.ViosLabel.Size = new System.Drawing.Size(119, 29);
             this.ViosLabel.TabIndex = 11;
             this.ViosLabel.Text = "Нарушения";
+            this.ViosLabel.Click += new System.EventHandler(this.ViosLabel_Click);
             // 
             // AdminProfileLabel
             // 
@@ -147,6 +148,7 @@
             this.CarsLabel.Size = new System.Drawing.Size(126, 29);
             this.CarsLabel.TabIndex = 8;
             this.CarsLabel.Text = "Автомобили";
+            this.CarsLabel.Click += new System.EventHandler(this.CarsLabel_Click);
             // 
             // panel2
             // 
@@ -179,6 +181,7 @@
             this.AdminsLabel.Size = new System.Drawing.Size(150, 29);
             this.AdminsLabel.TabIndex = 2;
             this.AdminsLabel.Text = "Администраторы";
+            this.AdminsLabel.Click += new System.EventHandler(this.AdminsLabel_Click);
             // 
             // UsersLabel
             // 

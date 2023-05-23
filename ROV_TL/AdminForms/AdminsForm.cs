@@ -244,5 +244,21 @@ namespace ROV_TL.AdminForms
             usersForm.ShowDialog();
             this.Close();
         }
+
+        private void CarsLabel_Click(object sender, EventArgs e)
+        {
+            CarsForm carsForm = new CarsForm(admin);
+            this.Hide();
+            carsForm.ShowDialog();
+            this.Close();
+        }
+
+        private void ViosLabel_Click(object sender, EventArgs e)
+        {
+            ViosForm viosForm = new ViosForm(admin);
+            this.Hide();
+            viosForm.ShowDialog();
+            this.Close();
+        }
     }
 }

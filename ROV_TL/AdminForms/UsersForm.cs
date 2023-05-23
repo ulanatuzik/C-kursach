@@ -224,5 +224,20 @@ namespace ROV_TL.AdminForms
             searchForm.ShowDialog();
             this.Close();
         }
+
+        private void AdminsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CarsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViosLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

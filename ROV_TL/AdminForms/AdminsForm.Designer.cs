@@ -113,6 +113,7 @@
             this.ViosLabel.Size = new System.Drawing.Size(119, 29);
             this.ViosLabel.TabIndex = 11;
             this.ViosLabel.Text = "Нарушения";
+            this.ViosLabel.Click += new System.EventHandler(this.ViosLabel_Click);
             // 
             // AdminProfileLabel
             // 
@@ -145,6 +146,7 @@
             this.CarsLabel.Size = new System.Drawing.Size(126, 29);
             this.CarsLabel.TabIndex = 8;
             this.CarsLabel.Text = "Автомобили";
+            this.CarsLabel.Click += new System.EventHandler(this.CarsLabel_Click);
             // 
             // panel2
             // 
@@ -712,7 +714,7 @@
             // AddButton
             // 
             this.AddButton.Image = global::ROV_TL.Properties.Resources.AddIcon;
-            this.AddButton.Location = new System.Drawing.Point(217, 12);
+            this.AddButton.Location = new System.Drawing.Point(199, 9);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(40, 40);
             this.AddButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

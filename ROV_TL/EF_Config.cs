@@ -15,6 +15,7 @@ namespace ROV_TL
         public DbSet<Car> Cars { get; set; } = null!;
         public DbSet<Vio> Violations { get; set; } = null!;
         public DbSet<PayedVio> PayedVio { get; set; } = null!;
+        public DbSet<Rule> Rules { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
