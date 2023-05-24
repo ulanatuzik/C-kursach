@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileForm));
             this.VioLabel = new System.Windows.Forms.Label();
             this.ProfileLabel = new System.Windows.Forms.Label();
             this.StaticLoginLabel = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
             this.AcessPictureBox_3 = new System.Windows.Forms.PictureBox();
             this.AcessPictureBox_4 = new System.Windows.Forms.PictureBox();
             this.AcessPictureBox_2 = new System.Windows.Forms.PictureBox();
+            this.AddBalanceButton = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExitPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpdatePictureBox)).BeginInit();
@@ -60,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AcessPictureBox_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AcessPictureBox_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AcessPictureBox_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddBalanceButton)).BeginInit();
             this.SuspendLayout();
             // 
             // VioLabel
@@ -111,10 +114,11 @@
             // 
             this.BalanceLabel.AutoSize = true;
             this.BalanceLabel.ForeColor = System.Drawing.Color.White;
-            this.BalanceLabel.Location = new System.Drawing.Point(386, 36);
+            this.BalanceLabel.Location = new System.Drawing.Point(382, 36);
             this.BalanceLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.BalanceLabel.MinimumSize = new System.Drawing.Size(100, 30);
             this.BalanceLabel.Name = "BalanceLabel";
-            this.BalanceLabel.Size = new System.Drawing.Size(86, 29);
+            this.BalanceLabel.Size = new System.Drawing.Size(100, 30);
             this.BalanceLabel.TabIndex = 7;
             this.BalanceLabel.Text = "balance";
             // 
@@ -353,12 +357,25 @@
             this.AcessPictureBox_2.TabIndex = 23;
             this.AcessPictureBox_2.TabStop = false;
             // 
+            // AddBalanceButton
+            // 
+            this.AddBalanceButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddBalanceButton.Image = ((System.Drawing.Image)(resources.GetObject("AddBalanceButton.Image")));
+            this.AddBalanceButton.Location = new System.Drawing.Point(497, 33);
+            this.AddBalanceButton.Name = "AddBalanceButton";
+            this.AddBalanceButton.Size = new System.Drawing.Size(36, 35);
+            this.AddBalanceButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AddBalanceButton.TabIndex = 41;
+            this.AddBalanceButton.TabStop = false;
+            this.AddBalanceButton.Click += new System.EventHandler(this.AddBalanceButton_Click);
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(867, 455);
+            this.Controls.Add(this.AddBalanceButton);
             this.Controls.Add(this.AcessPictureBox_4);
             this.Controls.Add(this.AcessPictureBox_2);
             this.Controls.Add(this.AcessPictureBox_3);
@@ -392,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AcessPictureBox_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AcessPictureBox_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AcessPictureBox_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddBalanceButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +442,6 @@
         private PictureBox AcessPictureBox_3;
         private PictureBox AcessPictureBox_4;
         private PictureBox AcessPictureBox_2;
+        private PictureBox AddBalanceButton;
     }
 }

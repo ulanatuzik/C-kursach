@@ -36,8 +36,8 @@
             this.ConfirmDataButton = new System.Windows.Forms.Button();
             this.staticRedactLabel = new System.Windows.Forms.Label();
             this.ModelTextBox = new System.Windows.Forms.TextBox();
-            this.DateTextBox = new System.Windows.Forms.TextBox();
             this.SumTextBox = new System.Windows.Forms.TextBox();
+            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // PlateTextBox
@@ -133,18 +133,6 @@
             this.ModelTextBox.Size = new System.Drawing.Size(456, 29);
             this.ModelTextBox.TabIndex = 44;
             // 
-            // DateTextBox
-            // 
-            this.DateTextBox.BackColor = System.Drawing.Color.Tan;
-            this.DateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DateTextBox.Location = new System.Drawing.Point(278, 210);
-            this.DateTextBox.MaxLength = 10;
-            this.DateTextBox.Name = "DateTextBox";
-            this.DateTextBox.PlaceholderText = "Date";
-            this.DateTextBox.ReadOnly = true;
-            this.DateTextBox.Size = new System.Drawing.Size(220, 29);
-            this.DateTextBox.TabIndex = 46;
-            // 
             // SumTextBox
             // 
             this.SumTextBox.BackColor = System.Drawing.Color.Tan;
@@ -156,13 +144,20 @@
             this.SumTextBox.Size = new System.Drawing.Size(197, 29);
             this.SumTextBox.TabIndex = 45;
             // 
+            // DateTimePicker
+            // 
+            this.DateTimePicker.Location = new System.Drawing.Point(278, 210);
+            this.DateTimePicker.Name = "DateTimePicker";
+            this.DateTimePicker.Size = new System.Drawing.Size(220, 36);
+            this.DateTimePicker.TabIndex = 46;
+            // 
             // RedactVioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(553, 341);
-            this.Controls.Add(this.DateTextBox);
+            this.Controls.Add(this.DateTimePicker);
             this.Controls.Add(this.SumTextBox);
             this.Controls.Add(this.ModelTextBox);
             this.Controls.Add(this.PlateTextBox);
@@ -195,7 +190,7 @@
         private Button ConfirmDataButton;
         private Label staticRedactLabel;
         private TextBox ModelTextBox;
-        private TextBox DateTextBox;
         private TextBox SumTextBox;
+        private DateTimePicker DateTimePicker;
     }
 }

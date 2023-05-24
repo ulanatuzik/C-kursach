@@ -41,7 +41,7 @@ namespace ROV_TL
                     this.Hide();
                     profileForm.ShowDialog();
 
-                    this.Close();
+                    this.ShowDialog();
                 }
                 else
                 {

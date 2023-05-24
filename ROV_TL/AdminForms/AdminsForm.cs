@@ -202,6 +202,12 @@ namespace ROV_TL.AdminForms
             Label currentLabel = (Label)sender;
             Admin redactAdmin = db.Admins.Where(a => a.AdminId == adminDict[currentLabel]).First();
 
+            if (redactAdmin.Login == admin.Login)
+            {
+                MessageBox.Show("Невозможно редактировать собственную информацию здесь");
+                return;
+            }
+
             if (redactAdmin.AdminLevel > admin.AdminLevel)
             {
                 MessageBox.Show("Невозможно редактировать администратора,\nчей доступ выше вашего");
@@ -258,6 +264,14 @@ namespace ROV_TL.AdminForms
             ViosForm viosForm = new ViosForm(admin);
             this.Hide();
             viosForm.ShowDialog();
+            this.Close();
+        }
+
+        private void AdminProfileLabel_Click(object sender, EventArgs e)
+        {
+            AdminProfileForm profileForm = new AdminProfileForm(admin);
+            this.Hide();
+            profileForm.ShowDialog();
             this.Close();
         }
     }

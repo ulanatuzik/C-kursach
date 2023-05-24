@@ -107,6 +107,7 @@
             this.ViosLabel.Size = new System.Drawing.Size(119, 29);
             this.ViosLabel.TabIndex = 11;
             this.ViosLabel.Text = "Нарушения";
+            this.ViosLabel.Click += new System.EventHandler(this.ViosLabel_Click);
             // 
             // AdminProfileLabel
             // 
@@ -119,11 +120,12 @@
             this.AdminProfileLabel.Size = new System.Drawing.Size(72, 29);
             this.AdminProfileLabel.TabIndex = 10;
             this.AdminProfileLabel.Text = "Admin";
+            this.AdminProfileLabel.Click += new System.EventHandler(this.AdminProfileLabel_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.panel3.Location = new System.Drawing.Point(1, 244);
+            this.panel3.Location = new System.Drawing.Point(1, 246);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(136, 5);
             this.panel3.TabIndex = 9;
@@ -139,6 +141,7 @@
             this.CarsLabel.Size = new System.Drawing.Size(126, 29);
             this.CarsLabel.TabIndex = 8;
             this.CarsLabel.Text = "Автомобили";
+            this.CarsLabel.Click += new System.EventHandler(this.CarsLabel_Click);
             // 
             // panel2
             // 
@@ -162,6 +165,7 @@
             // AdminsLabel
             // 
             this.AdminsLabel.AutoSize = true;
+            this.AdminsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AdminsLabel.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AdminsLabel.ForeColor = System.Drawing.Color.Black;
             this.AdminsLabel.Location = new System.Drawing.Point(11, 109);
@@ -170,6 +174,7 @@
             this.AdminsLabel.Size = new System.Drawing.Size(150, 29);
             this.AdminsLabel.TabIndex = 2;
             this.AdminsLabel.Text = "Администраторы";
+            this.AdminsLabel.Click += new System.EventHandler(this.AdminsLabel_Click);
             // 
             // UsersLabel
             // 
@@ -182,6 +187,7 @@
             this.UsersLabel.Size = new System.Drawing.Size(142, 29);
             this.UsersLabel.TabIndex = 3;
             this.UsersLabel.Text = "Пользователи";
+            this.UsersLabel.Click += new System.EventHandler(this.UsersLabel_Click);
             // 
             // LoginLabel_5
             // 

@@ -218,5 +218,45 @@ namespace ROV_TL.AdminForms
             addCarForm.ShowDialog();
             this.Close();
         }
+
+        private void AdminsLabel_Click(object sender, EventArgs e)
+        {
+            AdminsForm adminsForm = new AdminsForm(admin);
+            this.Hide();
+            adminsForm.ShowDialog();
+            this.Close();
+        }
+
+        private void UsersLabel_Click(object sender, EventArgs e)
+        {
+            UsersForm usersForm = new UsersForm(admin);
+            this.Hide();
+            usersForm.ShowDialog();
+            this.Close();
+        }
+
+        private void CarsLabel_Click(object sender, EventArgs e)
+        {
+            CarsForm carsForm = new CarsForm(admin);
+            this.Hide();
+            carsForm.ShowDialog();
+            this.Close();
+        }
+
+        private void ViosLabel_Click(object sender, EventArgs e)
+        {
+            ViosForm viosForm = new ViosForm(admin);
+            this.Hide();
+            viosForm.ShowDialog();
+            this.Close();
+        }
+
+        private void AdminProfileLabel_Click(object sender, EventArgs e)
+        {
+            AdminProfileForm profileForm = new AdminProfileForm(admin);
+            this.Hide();
+            profileForm.ShowDialog();
+            this.Close();
+        }
     }
 }

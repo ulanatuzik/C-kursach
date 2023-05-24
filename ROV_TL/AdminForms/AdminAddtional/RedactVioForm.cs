@@ -65,7 +65,8 @@ namespace ROV_TL.AdminForms.AdminAddtional
         {
             VioTextBox.Text = vio.Violation;
             SumTextBox.Text = vio.Fine;
-            DateTextBox.Text = vio.Date.ToString();
+            DateTimePicker.Value = vio.Date;
+            //DateTextBox.Text = vio.Date.ToString();
 
             string userLogin = db.Users
                 .Where(u => u.Id == vio.UserId)
@@ -152,7 +153,7 @@ namespace ROV_TL.AdminForms.AdminAddtional
                 return;
             }
 
-            //vio.Date = vioDate;
+            vio.Date = DateTimePicker.Value;
             vio.Violation = VioTextBox.Text;
             vio.Fine = fine.ToString();
 

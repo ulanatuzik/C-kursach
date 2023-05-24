@@ -41,6 +41,7 @@
             this.PayedVioButton = new System.Windows.Forms.Button();
             this.ActiveVioButton = new System.Windows.Forms.Button();
             this.CurrentPageLabel = new System.Windows.Forms.Label();
+            this.CreateNewVio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,6 @@
             // ViosLabel
             // 
             this.ViosLabel.AutoSize = true;
-            this.ViosLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ViosLabel.ForeColor = System.Drawing.Color.Black;
             this.ViosLabel.Location = new System.Drawing.Point(11, 216);
             this.ViosLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -83,11 +83,12 @@
             this.AdminProfileLabel.Size = new System.Drawing.Size(72, 29);
             this.AdminProfileLabel.TabIndex = 10;
             this.AdminProfileLabel.Text = "Admin";
+            this.AdminProfileLabel.Click += new System.EventHandler(this.AdminProfileLabel_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.panel3.Location = new System.Drawing.Point(1, 244);
+            this.panel3.Location = new System.Drawing.Point(1, 246);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(136, 5);
             this.panel3.TabIndex = 9;
@@ -103,6 +104,7 @@
             this.CarsLabel.Size = new System.Drawing.Size(126, 29);
             this.CarsLabel.TabIndex = 8;
             this.CarsLabel.Text = "Автомобили";
+            this.CarsLabel.Click += new System.EventHandler(this.CarsLabel_Click);
             // 
             // panel2
             // 
@@ -126,6 +128,7 @@
             // AdminsLabel
             // 
             this.AdminsLabel.AutoSize = true;
+            this.AdminsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AdminsLabel.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AdminsLabel.ForeColor = System.Drawing.Color.Black;
             this.AdminsLabel.Location = new System.Drawing.Point(11, 109);
@@ -134,6 +137,7 @@
             this.AdminsLabel.Size = new System.Drawing.Size(150, 29);
             this.AdminsLabel.TabIndex = 2;
             this.AdminsLabel.Text = "Администраторы";
+            this.AdminsLabel.Click += new System.EventHandler(this.AdminsLabel_Click);
             // 
             // UsersLabel
             // 
@@ -146,6 +150,7 @@
             this.UsersLabel.Size = new System.Drawing.Size(142, 29);
             this.UsersLabel.TabIndex = 3;
             this.UsersLabel.Text = "Пользователи";
+            this.UsersLabel.Click += new System.EventHandler(this.UsersLabel_Click);
             // 
             // NotPayedViosButton
             // 
@@ -185,7 +190,7 @@
             this.ActiveVioButton.Name = "ActiveVioButton";
             this.ActiveVioButton.Size = new System.Drawing.Size(220, 74);
             this.ActiveVioButton.TabIndex = 41;
-            this.ActiveVioButton.Text = "База возможных нарушений";
+            this.ActiveVioButton.Text = "База активных правил";
             this.ActiveVioButton.UseVisualStyleBackColor = false;
             this.ActiveVioButton.Click += new System.EventHandler(this.ActiveVioButton_Click);
             // 
@@ -199,12 +204,27 @@
             this.CurrentPageLabel.TabIndex = 46;
             this.CurrentPageLabel.Text = "Меню взаимодействия с нарушениями";
             // 
+            // CreateNewVio
+            // 
+            this.CreateNewVio.BackColor = System.Drawing.Color.Tan;
+            this.CreateNewVio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateNewVio.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CreateNewVio.ForeColor = System.Drawing.Color.Black;
+            this.CreateNewVio.Location = new System.Drawing.Point(569, 229);
+            this.CreateNewVio.Name = "CreateNewVio";
+            this.CreateNewVio.Size = new System.Drawing.Size(220, 74);
+            this.CreateNewVio.TabIndex = 47;
+            this.CreateNewVio.Text = "Создать новое нарушение";
+            this.CreateNewVio.UseVisualStyleBackColor = false;
+            this.CreateNewVio.Click += new System.EventHandler(this.CreateNewVio_Click);
+            // 
             // ViosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(867, 455);
+            this.Controls.Add(this.CreateNewVio);
             this.Controls.Add(this.CurrentPageLabel);
             this.Controls.Add(this.ActiveVioButton);
             this.Controls.Add(this.PayedVioButton);
@@ -239,5 +259,6 @@
         private Button PayedVioButton;
         private Button ActiveVioButton;
         private Label CurrentPageLabel;
+        private Button CreateNewVio;
     }
 }

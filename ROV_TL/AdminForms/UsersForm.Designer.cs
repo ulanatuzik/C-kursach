@@ -128,6 +128,7 @@
             this.AdminProfileLabel.Size = new System.Drawing.Size(72, 29);
             this.AdminProfileLabel.TabIndex = 10;
             this.AdminProfileLabel.Text = "Admin";
+            this.AdminProfileLabel.Click += new System.EventHandler(this.AdminProfileLabel_Click);
             // 
             // panel3
             // 

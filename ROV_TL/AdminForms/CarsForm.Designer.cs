@@ -107,6 +107,7 @@
             this.ViosLabel.Size = new System.Drawing.Size(119, 29);
             this.ViosLabel.TabIndex = 11;
             this.ViosLabel.Text = "Нарушения";
+            this.ViosLabel.Click += new System.EventHandler(this.ViosLabel_Click);
             // 
             // AdminProfileLabel
             // 
@@ -119,6 +120,7 @@
             this.AdminProfileLabel.Size = new System.Drawing.Size(72, 29);
             this.AdminProfileLabel.TabIndex = 10;
             this.AdminProfileLabel.Text = "Admin";
+            this.AdminProfileLabel.Click += new System.EventHandler(this.AdminProfileLabel_Click);
             // 
             // panel3
             // 
@@ -131,7 +133,6 @@
             // CarsLabel
             // 
             this.CarsLabel.AutoSize = true;
-            this.CarsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CarsLabel.ForeColor = System.Drawing.Color.Black;
             this.CarsLabel.Location = new System.Drawing.Point(11, 182);
             this.CarsLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -171,10 +172,12 @@
             this.AdminsLabel.Size = new System.Drawing.Size(150, 29);
             this.AdminsLabel.TabIndex = 2;
             this.AdminsLabel.Text = "Администраторы";
+            this.AdminsLabel.Click += new System.EventHandler(this.AdminsLabel_Click);
             // 
             // UsersLabel
             // 
             this.UsersLabel.AutoSize = true;
+            this.UsersLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UsersLabel.ForeColor = System.Drawing.Color.Black;
             this.UsersLabel.Location = new System.Drawing.Point(11, 146);
             this.UsersLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -182,6 +185,7 @@
             this.UsersLabel.Size = new System.Drawing.Size(142, 29);
             this.UsersLabel.TabIndex = 3;
             this.UsersLabel.Text = "Пользователи";
+            this.UsersLabel.Click += new System.EventHandler(this.UsersLabel_Click);
             // 
             // SearchButton
             // 
