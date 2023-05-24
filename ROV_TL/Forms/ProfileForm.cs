@@ -2,6 +2,7 @@
 using NLog;
 using System.Text.RegularExpressions;
 using ROV_TL.Forms;
+using ROV_TL.Forms.Additional;
 
 namespace ROV_TL
 {
@@ -257,6 +258,13 @@ namespace ROV_TL
         private void ExitPictureBox_Click(object sender, EventArgs e)
         {
             log.Info("Log off from profile {login}", user.Login); 
+            this.Close();
+        }
+
+        private void AddBalanceButton_Click(object sender, EventArgs e)
+        {
+            BalanceForm balanceForm = new BalanceForm(user, this);
+            balanceForm.ShowDialog();
             this.Close();
         }
     }
