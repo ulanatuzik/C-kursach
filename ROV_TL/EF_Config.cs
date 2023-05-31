@@ -21,7 +21,7 @@ namespace ROV_TL
         {
             optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            optionsBuilder.UseSqlServer(@"Server=localhost;Database=ROV;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Database=kursachdatabase;Trusted_Connection=True;TrustServerCertificate=True;");
         }
     }
 }
